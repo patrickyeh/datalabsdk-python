@@ -1,4 +1,4 @@
-from datalab import DataTransform
+from datalabsdk import DataTransform
 
 
 class Model(object):

@@ -1,5 +1,5 @@
 __all__ = ['DataTransform']
-from datalab import DataType
+from datalabsdk import DataType
 
 
 class DataTransform(object):
