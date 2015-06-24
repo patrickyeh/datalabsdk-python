@@ -1,6 +1,7 @@
 from datalabsdk.DataTransform import DataTransform
 
 
+
 class Model(object):
     def __init__(self):
         """
