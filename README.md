@@ -8,8 +8,10 @@ pip install datalabsdk
 ###Usage
 You should import the specificed class and implement the function for matching your algorithm interface. Following is an example of classfication algorithm power by sklearn, that's try to wrap the algorithm into our sdk!
 
-`
+```
 from datalab.Model import ClassificationModel
+import numpy as np
+from sklearn.neighbors import RadiusNeighborsClassifier
 from sklearn import tree
 from datalab.DataTransform import DataTransform
 
@@ -40,5 +42,5 @@ class DecisionTreeModel(ClassificationModel):
 
     def validate_by_object(self,obj_test_x,obj_test_y):
         return self.model.score(obj_test_x,obj_test_y)
-`
+```
 ###SDK
