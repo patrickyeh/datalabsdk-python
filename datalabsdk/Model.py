@@ -1,4 +1,4 @@
-from datalabsdk import DataTransform
+from datalabsdk.DataTransform import DataTransform
 
 
 class Model(object):
@@ -15,6 +15,7 @@ class Model(object):
         self.args = args
 
     def format_check(self, input_path):
+        pass
         '''
         :param input_path:
         :return True if this file can be processed:
@@ -34,7 +35,7 @@ class Model(object):
     def set_label_column_index(self,int_label_index):
         self.int_label_index = int_label_index
 
-    def train(self, input_path):
+    def train(self, input_path,**param):
         '''
         :param input_path:
         :return a model object:
