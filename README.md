@@ -1,4 +1,8 @@
 # datalabsdk-python
+###Introduction
+The SDK is designed for adapting your algorithm to III Algorithm Orchestration System. Developer should follow our interface to wrap your algorithm so that we can perform performance evaluation on our system automatically.
+
+####III Algorithm Orchestration System Web Site: datalab.iii.org.tw
 
 ###Installation
 
@@ -44,3 +48,14 @@ class DecisionTreeModel(ClassificationModel):
         return self.model.score(obj_test_x,obj_test_y)
 ```
 ###SDK
+'''
+class Model(object):
+    def train(self, input_path,**param):
+        '''
+        :param input_path :AO System pass the training data path
+        :param **param: The Parameter pass from AO System user (should implement check_status function to example the parameters that requested)
+        :return a model object:
+        '''
+'''
+        raise 'Need to be implemented'
+
