@@ -48,7 +48,7 @@ class DecisionTreeModel(ClassificationModel):
         return self.model.score(obj_test_x,obj_test_y)
 ```
 ###SDK
-'''
+```
 class Model(object):
     def train(self, input_path,**param):
         '''
@@ -56,6 +56,5 @@ class Model(object):
         :param **param: The Parameter pass from AO System user (should implement check_status function to example the parameters that requested)
         :return a model object:
         '''
-'''
         raise 'Need to be implemented'
-
+```
