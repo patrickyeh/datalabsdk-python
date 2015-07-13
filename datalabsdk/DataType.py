@@ -63,6 +63,7 @@ class NumDenseCSV(DataType):
 
 class LibSVM(DataType):
     def fetch_data(self,label_idx=None):
+
         return load_svmlight_file(self.input_path,**self.param)
 
     def check_data_compatibility(self):

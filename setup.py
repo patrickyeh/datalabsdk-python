@@ -1,9 +1,9 @@
 __author__ = 'Vetom'
 
-from setuptools import setup,find_packages
+from setuptools import setup
 
 setup(name='datalabsdk',
-      version='0.1.1',
+      version='0.1.5',
       description='Data Lab API for Python',
       author='III Data Analytic Team',
       author_email='patrickyeh@iii.org.tw',
