@@ -28,6 +28,13 @@ class DataType(object):
         :return:
         '''
         raise 'Need to be implemented'
+    def _append_array(self,source_arr,target_arr):
+        '''
+        :param source_arr:
+        :param target_arr:
+        :return:
+        '''
+        raise 'Need to be implemented'
 
     def fetch_data_lazy(self):
         obj_file = self._getIterReader()
@@ -39,9 +46,9 @@ class DataType(object):
         res = None
         for inst in self._getIterReader():
             if res == None:
-                res = np.array(self._transform(inst))
+                res = self._transform(inst)
             else:
-                res = np.vstack(res,np.array(self._transform(inst)))
+                res = self._append_array(res,np.array(self._transform(inst)))
         if label_idx == None:
             return res
         else:
@@ -58,7 +65,16 @@ class NumDenseCSV(DataType):
         lst_record = str_record.split(',')
         for idx in xrange(len(lst_record)):
             lst_record[idx] = float(lst_record[idx])
-        return lst_record
+        return np.array(lst_record)
+
+    def _append_array(self,source_arr,target_arr):
+        return np.vstack(source_arr,target_arr)
+
+class TextCSV(DataType):
+    def _transform(self,str_record):
+        return str_record.split(',')
+    def _append_array(self,source_arr,target_arr):
+        return source_arr.extend(target_arr)
 
 
 class LibSVM(DataType):

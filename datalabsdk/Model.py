@@ -1,7 +1,5 @@
 from datalabsdk.DataTransform import DataTransform
-
 import numpy as np
-
 
 class Model(object):
     def __init__(self):
@@ -16,6 +14,9 @@ class Model(object):
 
     def check_status(self):
         raise "Need to be implemented by algorithm"
+
+    def get_required_params(self):
+        raise "Need to be assigned"
 
     def set_parameters(self, **args):
         self.args = args
@@ -56,9 +57,6 @@ class Model(object):
         '''
         raise 'Need to be implemented'
 
-    def transfermation(self, input_data):
-        pass
-
     def predict_by_array(self, obj_array):
         raise 'Need to be implemented'
 
@@ -71,6 +69,24 @@ class Model(object):
     def set_dimension(self, int_dimension):
         self.int_dimension = int_dimension
 
+    def get_model_result(self):
+        raise 'Need to be implemented'
+
+    def get_required_params(self):
+        raise 'Need to be assign'
+
+    def _verify_params(self,params):
+        dict_required_param = self.get_required_params()
+        for key in dict_required_param.keys():
+            if dict_required_param[key].has_key('required') and not params.has_key('key'):
+                return False
+        return True
+    def get_input_file_format(self):
+        raise "Does not assign"
+
+class RecommendationModel(Model):
+    def get_category(self):
+        return 'Recommendation'
 
 class ClassificationModel(Model):
     def get_category(self):
