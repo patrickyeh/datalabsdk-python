@@ -15,8 +15,6 @@ class Model(object):
     def check_status(self):
         raise "Need to be implemented by algorithm"
 
-    def get_required_params(self):
-        raise "Need to be assigned"
 
     def set_parameters(self, **args):
         self.args = args
@@ -72,8 +70,6 @@ class Model(object):
     def get_model_result(self):
         raise 'Need to be implemented'
 
-    def get_required_params(self):
-        raise 'Need to be assign'
 
     def _verify_params(self,params):
         dict_required_param = self.get_required_params()
